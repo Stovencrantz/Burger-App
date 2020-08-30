@@ -7,22 +7,23 @@ $(function() {
         event.preventDefault();
 
         console.log("event: ", event);
-
-        var newBurger = {
-            burger_name: $("#burg").val().trim(),
-            devoured: 0
-        };
-
-        //send the POST request
-        $.ajax("/api/burgers", {
-            type: "POST",
-            data: newBurger
-        }).then(function() {
-            console.log("Created new burger");
-            //reload the location to get the updated list
-            location.reload();
-        });
-
+        console.log($(".freshBurgers").children().length);
+        // Validates that the user must enter a non-empty string for their answer to be posted and also allows a maximum of 4 fresh burgers to be present at one time
+        if($("#burg").val().trim() !== "" && $(".freshBurgers").children().length < 4){
+            var newBurger = {
+                burger_name: $("#burg").val().trim(),
+                devoured: 0
+            };
+                    //send the POST request
+            $.ajax("/api/burgers", {
+                type: "POST",
+                data: newBurger
+            }).then(function() {
+                console.log("Created new burger");
+                //reload the location to get the updated list
+                location.reload();
+            });
+        }
     });
 
     $(".devourBtn").on("click", function(event) {
@@ -45,4 +46,14 @@ $(function() {
         })
 
     })
+
+    $(".clear-devoured").on("click", function(event) {
+
+        $.ajax("/api/burgers", {
+            type: "DELETE"
+        }).then(function() {
+            console.log("deleting devoured lsit")
+            location.reload();
+        });
+    });
 });
