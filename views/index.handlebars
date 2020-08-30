@@ -1,38 +1,51 @@
-<h1>Cats!</h1>
 
-<h2>Cats that are not sleepy!</h2>
-
-<ul>
-  {{#each cats}}
-    {{#unless sleepy}}
-      {{> cats/cat-block sleep=true}}
-    {{/unless}}
-  {{/each}}
-</ul>
-
-<h2>Cats that are sleepy!</h2>
-
-<ul>
-  {{#each cats}}
-    {{#if sleepy}}
-      {{> cats/cat-block sleep=false}}
-    {{/if}}
-  {{/each}}
-</ul>
-
-<h2>Add a Cat</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="ca">Cat Name:</label>
-    <input type="text" id="ca" name="name">
+  <!-- events-index -->
+  <div class="jumbotron  bg-transparent text-center mh-100px">
+     <img src="assets/img/burger2.png" alt="burger image" class = "mw-200 mh-200 bg-orange">
+    <h2>BURGERS! NOM!NOM! NOM!</h2>
   </div>
 
-  <div class="form-group">
-    <label for="sleepy">Sleepy?</label><br>
-    <input type="radio" name="sleepy" value="1" checked> Sleepy!<br>
-    <input type="radio" name="sleepy" value="0"> Awake
+  <div class="row">
+      <div class="col-sm-4 ">
+        <ul class="list-group">
+          {{#each burgers}}
+            {{#unless devoured}}
+              <li class = "list-group-item text-center  freshBurger">{{this.id}}. {{this.burger_name}} 
+              </li>               
+            {{/unless}}
+          {{/each}}
+        </ul> 
+      </div>
+
+      <div class="col-sm-4 ">
+        <ul class="list-group pt-1"></ul>
+          {{#each burgers}}
+            {{#unless devoured}}
+              <li class = "py-1"><button class = "btn btn-primary devourBtn " data-id="{{id}}">Devour Me!</button></li>             
+            {{/unless}}
+          {{/each}}
+          </ul>
+      </div>
+
+      <div class="col-sm-4 ">
+          <ul class="list-group">
+            {{#each burgers}}
+              {{#if devoured}}
+                <li class = "list-group-item text-center devouredBurger">{{this.id}}. {{this.burger_name}}
+                </li>
+              {{/if}}
+            {{/each}}
+          </ul> 
+      </div>
   </div>
 
-  <button type="submit">Add Cat</button>
-</form>
+
+  <h2 class = "text-center">Add A Burger!</h2>
+  <form class="create-form text-center">
+    <label for="burg">Burger Name:</label>
+    <input type="text" id = "burg" name = "burgerName">
+
+    <button type="submit" class = "btn btn-secondary submitBtn">Add Burger</button>
+  </form>
+
+

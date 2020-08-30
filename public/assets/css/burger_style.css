@@ -1,0 +1,24 @@
+body {
+    background-color: orange;
+}
+
+.container {
+    max-width: 800px;
+    max-height: 700px;
+}
+
+img {
+    max-height: 200px;
+    max-width: 200px;
+    background-color: orange;
+    text-align: center;
+}
+
+ul {
+    max-height: 200px;
+    overflow: auto;
+}
+
+li {
+    list-style-type: none;
+}

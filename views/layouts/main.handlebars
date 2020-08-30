@@ -1,13 +1,25 @@
-<li>
-	{{name}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="assets/css/burger_style.css" type="text/css" />
+		<title>Eat Da Burger!</title>
+		<script src="https://code.jquery.com/jquery.js"></script>
+		<script id = "main-template" type="text/x-handlebars-template"></script>
 
-	<h1>Woah THIS IS A BURGER PLACE FILLED WITH BURGERS</h1>
-	<h2>HEY LOOK HERE BURGERS UP THE WAZOO</h2>
-	<button class="submit-burger" data-id="{{this.id}}">SUBMIT!</button>
+		{{!-- <script src="/assets/js/cats.js"></script> --}}
+	</head>
+	<body>
 
-</li>
+	<div class="container .d-flex .align-items-center">
+		{{{ body }}}
+	</div>
 
-	<img style = "max-width: 400px, max-height: 400px" src="/assets/img/burger.png" alt="burger">
-
-
+	
+	
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script src="assets/js/burg.js"></script>
+	</body>
+</html>
 
